@@ -242,7 +242,7 @@ print("Downregulated genes:")
 print(downregulated_genes)
 #[1] "GOLGA8Q" "SLC6A13" "IL1A" 
 
-
+###Enhanced volcano plot----------------------------------------------------------
 # Install EnhancedVolcano if not already installed
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
@@ -251,45 +251,44 @@ BiocManager::install("EnhancedVolcano")
 # Load EnhancedVolcano library
 library(EnhancedVolcano)
 
-# Define upregulated and downregulated genes
-upregulated_genes <- rownames(res)[res$log2FoldChange > 1 & res$padj < 0.05]
-downregulated_genes <- rownames(res)[res$log2FoldChange < -1 & res$padj < 0.05]
+# Clean data
+res_clean <- res[!is.na(res$log2FoldChange) & !is.na(res$padj), ]
 
-# Create a custom label vector
-# Label only upregulated and downregulated genes, leave others blank
-custom_labels <- ifelse(rownames(res) %in% upregulated_genes, rownames(res),
-                        ifelse(rownames(res) %in% downregulated_genes, rownames(res), ""))
+dev.off()
+graphics.off()
 
-# Create the volcano plot
-EnhancedVolcano(res,
-                lab = custom_labels,        # Use custom labels for upregulated and downregulated genes
-                x = 'log2FoldChange',       # X-axis: log2 fold change
-                y = 'padj',                 # Y-axis: adjusted p-value
-                xlim = c(-5, 5),            # X-axis limits
-                ylim = c(0, 10),            # Y-axis limits
-                pCutoff = 0.05,             # p-value cutoff
-                FCcutoff = 1,               # log2 fold change cutoff
-                title = "Volcano Plot",     # Title of the plot
-                subtitle = NULL,            # Remove subtitle
-                col = c('grey', 'red', 'green'),  # All points are grey
-                legendLabels = c('NS', 'Upregulated', 'Downregulated'),  # Legend labels
-                labSize = 3,                # Size of the labels
-                pointSize = 3,              # Size of the points (balls)
-                shape = 19,                 # Shape of the points (19 = solid circle)
-                legendPosition = 'top',     # Position of the legend (top of the figure)
-                legendLabSize = 10,         # Size of legend labels
-                legendIconSize = 3,         # Size of icons in the legend
-                drawConnectors = TRUE,      # Draw connectors between labels and points
-                widthConnectors = 0.5,      # Width of the connector lines
-                colConnectors = 'black',    # Color of the connector lines
-                axisLabSize = 12,           # Size of x and y axis labels
-                titleLabSize = 14,          # Size of the title
-                max.overlaps = Inf          # Allow all labels to be displayed
-)
+library(EnhancedVolcano)
+
+res_clean <- res[!is.na(res$log2FoldChange) & !is.na(res$padj), ]
+
+keyvals <- ifelse(res_clean$log2FoldChange > 1 & res_clean$padj < 0.05, "Up",
+                  ifelse(res_clean$log2FoldChange < -1 & res_clean$padj < 0.05, "Down", "NS"))
+
+keyvals_col <- ifelse(keyvals == "Up", "green",
+                      ifelse(keyvals == "Down", "red", "grey"))
+
+names(keyvals_col) <- keyvals
+
+labels <- ifelse(keyvals != "NS", rownames(res_clean), "")
 
 
+# Label only top 15 genes (clean plot)
+#top_genes <- head(rownames(res_clean[order(res_clean$padj), ]), 15)
+#labels <- ifelse(rownames(res_clean) %in% top_genes,
+ #                rownames(res_clean), "")
 
+EnhancedVolcano(res_clean,
+                lab = labels,
+                x = "log2FoldChange",
+                y = "padj",
+                colCustom = keyvals_col,
+                pCutoff = 0.05,
+                FCcutoff = 1,
+                drawConnectors = FALSE,
+                max.overlaps = 20,
+                title = "Volcano Plot")
 
+#----------------------------------------------------------------------------------------
 
 ## Select top 20 differentially expressed genes by adjusted p-value
 topGenes <- head(order(res$padj), 20)
