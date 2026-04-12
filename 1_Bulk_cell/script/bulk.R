@@ -409,7 +409,7 @@ print(head(go_results, 10))
 
 
 # Save the cleaned results to a CSV file
-write.csv(go_results, file = "UPREGULATED_go_enrichment_cleaned_results.csv", row.names = FALSE)
+write.csv(go_results, file = "result/UPREGULATED_go_enrichment_cleaned_results.csv", row.names = FALSE)
 
 ----------------------------------------------------------------
   
@@ -437,5 +437,5 @@ go_down_results$Genes <- sapply(strsplit(go_down_results$Genes, "/"), function(i
 print(head(go_down_results, 10))
 
 # Save the cleaned results to a CSV file
-write.csv(go_down_results, file = "DOWN_REGULATED_enrichment_cleaned_results.csv", row.names = FALSE)
+write.csv(go_down_results, file = "result/DOWN_REGULATED_enrichment_cleaned_results.csv", row.names = FALSE)
 
