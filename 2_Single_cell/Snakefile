@@ -1,0 +1,15 @@
+rule all:
+    input:
+        "result/single_snake_R.rds",
+        "result/markers.csv"
+
+rule seurat_analysis:
+    input:
+        "data/"
+    output:
+        rds="result/single_snake_R.rds",
+        csv="result/markers.csv"
+    shell:
+        """
+        Rscript script/single_snake_R.R data/ result/single_snake_R.rds result/markers.csv
+        """
