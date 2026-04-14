@@ -12,7 +12,6 @@ This repository contains datasets and analysis workflows for **bulk RNA-seq, sin
   [Go to Bulk RNA-seq README](1_Bulk_cell/README.md)
   
    ![Enhanced Volcano Plot](1_Bulk_cell/result/Enhanced_volcano.jpeg)
-  ![Heatmap](1_Bulk_cell/result/heatmap.jpeg).
 
 
 # *Single-Cell RNA-seq – GSE275330** (`2_Single_cell/`)  
