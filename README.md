@@ -7,7 +7,6 @@ This repository contains datasets and analysis workflows for **bulk RNA-seq, sin
 # *Bulk RNA-seq* (`1_Bulk_cell/`)
  
   Bulk transcriptomic gene expression data for differential expression analysis.  
-  [GEO Dataset Link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE247791)
   
   [Go to Bulk RNA-seq README](1_Bulk_cell/README.md)
   
@@ -18,7 +17,6 @@ This repository contains datasets and analysis workflows for **bulk RNA-seq, sin
 
 This repository contains a reproducible Snakemake pipeline for processing single-cell RNA-seq data using the Seurat framework in R. The pipeline automates the transition from raw count matrices to clustered populations and marker discovery.
 
- [GEO Dataset Link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE275330)
   
    [Go to Single RNA-seq README](2_Single_cell/README.md)
    
