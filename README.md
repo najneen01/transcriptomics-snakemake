@@ -20,7 +20,7 @@ This repository contains a reproducible Snakemake pipeline for processing single
 
  [GEO Dataset Link](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE275330)
   
-   [Go to Single RNA-seq README](1_Single_cell/README.md)
+   [Go to Single RNA-seq README](2_Single_cell/README.md)
    
   ![umap](2_Single_cell/result/umap_tsne.png)
 
