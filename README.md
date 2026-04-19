@@ -1,10 +1,6 @@
 # Transcriptomics Analysis Repository
 ![GitHub](https://img.shields.io/badge/status-active-brightgreen)
 
-
-![Stars](https://img.shields.io/github/stars/najneen01/Transcriptomics-Bulk-SingleCell-Spatial)
-![Forks](https://img.shields.io/github/forks/najneen01/Transcriptomics-Bulk-SingleCell-Spatial)
-
 This repository contains datasets and analysis workflows for **bulk RNA-seq, single-cell RNA-seq, and spatial transcriptomics** studies. 
 
 
