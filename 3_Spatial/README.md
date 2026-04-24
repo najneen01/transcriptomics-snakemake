@@ -31,6 +31,9 @@ seurat_obj <- Load10X_Spatial(
 Description: Initializes the Seurat object by integrating the gene expression matrix with histological image coordinates.
 
 ### 2. Dimensionality Reduction (UMAP)
+
+   ![umap](3_Spatial/result/umap.jpeg)
+
 Visualization of transcriptomic clusters in a 2D UMAP space.
 
 DimPlot(seurat_obj, reduction = "umap", label = TRUE)
