@@ -33,6 +33,8 @@ Description: Initializes the Seurat object by integrating the gene expression ma
 ### 2. Dimensionality Reduction (UMAP)
 
    ![umap](3_Spatial/result/umap.jpeg)
+![umap](2_Single_cell/result/umap_tsne.png)
+
 
 Visualization of transcriptomic clusters in a 2D UMAP space.
 
