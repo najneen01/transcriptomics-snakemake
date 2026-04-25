@@ -172,7 +172,7 @@ A side-by-side comparison of the top 10 upregulated and top 10 downregulated gen
 ![bar_plot](https://raw.githubusercontent.com/najneen01/transcriptomics-snakemake/main/3_Spatial/result/bar_plot.jpeg)
 
 
-# Bar Plot-----------------------------------------------------------------------
+### Bar Plot
 
 top_genes_combined <- rbind(
   
@@ -235,7 +235,7 @@ Description: This combined dot plot serves as a signature map for the clusters, 
 ### 11. Feature Plot (Gene Expression Density)
 Visualizing the expression levels of key breast cancer drivers and structural markers across the UMAP projection.
 
-![feature_plot](https://raw.githubusercontent.com/najneen01/transcriptomics-snakemake/main/3_Spatial/result/featuret_plot.jpeg)
+![feature_plot](https://raw.githubusercontent.com/najneen01/transcriptomics-snakemake/main/3_Spatial/result/feature_plot.jpeg)
 
 
 FeaturePlot(
